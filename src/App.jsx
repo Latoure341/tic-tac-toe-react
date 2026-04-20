@@ -1,11 +1,14 @@
-
+import Router from './Router'
 import './App.css'
+import { GlobalStyle } from "./styles/Global.styled.js"
 
 function App() {
 
   return (
     <>
-    <h1>Tic Tac Toe</h1>
+    <GlobalStyle />
+    <Router />
+
     </>
   )
 }
