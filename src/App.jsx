@@ -4,17 +4,18 @@ import './App.css'
 import { GlobalStyle } from "./styles/Global.styled.js"
 import { DarkTheme, LightTheme } from './styles/Theme.js';
 import { useContext } from 'react';
-import { ThemeContext } from './contexts/ThemeContex.jsx';
-function App() {
+import { ThemeContext } from './contexts/ThemeContext.jsx';
 
-  const {theme, setTheme} = useContext(ThemeContext)
-  const mode = (theme === "light" ? LightTheme : DarkTheme )
+function App() {
+  const { theme } = useContext(ThemeContext)
+  const mode = (theme === "light" ? LightTheme : DarkTheme)
 
   return (
-    <ThemeProvider theme={DarkTheme}>
-    <GlobalStyle />
-    <Router />
+    <ThemeProvider theme={mode}>
+      <GlobalStyle />
+      <Router />
     </ThemeProvider>
+
   )
 }
 

@@ -9,4 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: black;
     color: white;
 }
+body {
+    background-color: ${props => props.theme.colors}
+}
 `

@@ -1,10 +1,15 @@
 import React from 'react'
+import Header from './Header';
+import { Title } from '../../styles/General.styled';
 
 const Home = () => {
   return (
     <div>
-      <h1>Home page</h1>
+      <Title>Home page</Title>
+      <Header />
     </div>
+
+
   )
 }
 
