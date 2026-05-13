@@ -6,10 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: black;
-    color: white;
+    background-color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.text};
 }
 body {
-    background-color: ${props => props.theme.colors}
+    background-color: ${props => props.theme.colors.primary}
 }
 `
