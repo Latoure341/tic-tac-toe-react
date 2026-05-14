@@ -1,10 +1,10 @@
 import React from 'react'
 import { CellStyle } from "./GameCell.styled"
 
-export const GameCell = () => {
+export const GameCell = ({cellItem}) => {
   return (
     <CellStyle>
-      x
+      {cellItem}
     </CellStyle>
   )
 }
