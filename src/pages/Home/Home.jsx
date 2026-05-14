@@ -1,6 +1,5 @@
 import React from 'react'
-import { Title, Subtitle } from '../../styles/General.styled';
-import { Container } from '../../styles/Home.styled';
+import { Container, Title, Subtitle } from '../../styles/General.styled';
 import Button  from "../../components/Button/Button.jsx";
 import { useNavigate } from 'react-router-dom';
 

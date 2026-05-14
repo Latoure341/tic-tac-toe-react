@@ -1,13 +1,16 @@
 import React from 'react'
 import { ThemeContextProvider } from './ThemeContext'
+import { GameContextProvider } from './GameContext'
 
-function Provider ({children}) {
+function Provider({ children }) {
   return (
 
-      <ThemeContextProvider>
-      {children}
+    <ThemeContextProvider>
+      <GameContextProvider>
+        {children}
+      </GameContextProvider>
     </ThemeContextProvider>
-  
+
   )
 }
 
