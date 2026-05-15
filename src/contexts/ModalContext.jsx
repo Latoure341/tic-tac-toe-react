@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { useModal } from "../hooks/useModal";
-import { ModalTemplate } from "../components/Modal/ModalTemplate"
+import ModalTemplate  from "../components/Modal/ModalTemplate"
 
 export const ModalContext = createContext({});
 

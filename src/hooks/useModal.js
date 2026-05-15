@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useModal = ()=> {
+export const useModal = () => {
     const [ modal, setModal ] = useState(false);
     const [ modalContent, setModalContent ] = useState("In A Modal");
 
@@ -10,5 +10,5 @@ export const useModal = ()=> {
             setModalContent(content);
         }
     };
-    return { modal, modalContent, handleModal };
+    return [ modal, modalContent, handleModal ];
 }
