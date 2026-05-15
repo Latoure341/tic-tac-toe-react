@@ -5,14 +5,14 @@ import { GameCell } from "../../components/GameCell/GameCell.jsx";
 import { GameContext } from '../../contexts/GameContext.jsx';
 
 const Game = () => {
-  const { game } = useContext(GameContext);
+  const { game } = useContext( GameContext );
 
   return (
     <Container>
       <GameBoardStyle>
         {
           game.board.map((item, index) => {
-            return <GameCell key={index} cellItem={item}/>
+            return <GameCell key={index} cellItem={item} index={index}/>
           })
         }
       </GameBoardStyle>

@@ -30,7 +30,7 @@ export const lightTheme = {
         },
     },
     media: {
-        mobile: "@media (max-width: 100px)",
+        mobile: "@media (max-width: 1000px)",
     },
 };
 
