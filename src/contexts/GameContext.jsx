@@ -1,10 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { checkWinner } from "../utils/Game.utils";
 
 export const GameContext = createContext({});
 
 export const GameContextProvider = (props)=>{
     const [ game, setGame ] = useState({
-        board: [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        board: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
         player1: {
             choice: "o",
             name: "player1"
@@ -13,21 +14,34 @@ export const GameContextProvider = (props)=>{
             choice: "x",
             name: "player2"
         },
-        turn: "x"
+        turn: "x",
+        winner: null
     })
 
     const updateBoard = (index) => {
         setGame((currentGame) => {
+            if (currentGame.winner || currentGame.board[index] === "x" || currentGame.board[index] === "o") {
+                return currentGame;
+            }
+
             const updatedBoard = [...currentGame.board];
-            updatedBoard[index] = game.turn;
+            updatedBoard[index] = currentGame.turn;
+            const winner = checkWinner(updatedBoard) ? currentGame.turn : null;
 
             return {
                 ...currentGame,
                 board: updatedBoard, 
-                turn: game.turn === "x" ? "o" : "x"
+                turn: winner ? currentGame.turn : currentGame.turn === "x" ? "o" : "x",
+                winner
             };
         });
     }
+
+    useEffect(() => {
+        if (game.winner) {
+            console.log("We have a winner");
+        }
+    }, [game.winner]);
 
     return (
         <GameContext.Provider value={{
