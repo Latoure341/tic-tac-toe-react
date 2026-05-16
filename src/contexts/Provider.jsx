@@ -8,9 +8,9 @@ function Provider({ children }) {
 
     <ThemeContextProvider>
       <GameContextProvider>
-        <ModalContextProvider>
+        
           {children}
-        </ModalContextProvider>
+        
       </GameContextProvider>
     </ThemeContextProvider>
 

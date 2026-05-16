@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
-import { ModalContext } from '../../contexts/ModalContext'
+import React, { useContext } from "react";
+import { ModalContext } from "../../contexts/ModalContext";
+import { ModalBackdrop, ModalContainer } from "./Modal.styled"
+import ReactDOM from 'react-dom';
 
 const ModalTemplate = () => {
-    const { handleModal, modalContent, modal } = useContext(ModalContext);
-     if (modal) {
-        return (
-            ReactDOM.createPortal(<div>{modalContent}</div>, document.getElementsById("modal"))
-        )
-    }
-    return null;
-}
+  const { handleModal, modalContent, modal } = useContext(ModalContext);
+  if (modal) {
+    return ReactDOM.createPortal(
+      <ModalBackdrop>
+        <ModalContainer>{modalContent}</ModalContainer>
+      </ModalBackdrop>,
+      document.getElementById("modal"),
+    );
+  }
+  return null;
+};
 
-export default ModalTemplate
+export default ModalTemplate;

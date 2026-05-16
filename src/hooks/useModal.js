@@ -10,5 +10,6 @@ export const useModal = () => {
             setModalContent(content);
         }
     };
+
     return [ modal, modalContent, handleModal ];
 }
