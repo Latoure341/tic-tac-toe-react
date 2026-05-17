@@ -3,12 +3,15 @@ import { Container } from '../../styles/General.styled';
 import { GameBoardStyle } from "./Game.styled";
 import { GameCell } from "../../components/GameCell/GameCell.jsx";
 import { GameContext } from '../../contexts/GameContext.jsx';
+import Player from '../../components/Player/Player.jsx';
 
 const Game = () => {
   const { game } = useContext( GameContext );
 
   return (
+    
     <Container>
+      <Player player={game.player1}/>
       <GameBoardStyle>
         {
           game.board.map((item, index) => {
@@ -16,6 +19,7 @@ const Game = () => {
           })
         }
       </GameBoardStyle>
+      <Player player={game.player2}/>
     </Container>
   )
 }

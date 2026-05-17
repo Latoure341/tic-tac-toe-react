@@ -8,11 +8,13 @@ export const GameContextProvider = (props)=>{
         board: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
         player1: {
             choice: "o",
-            name: "player1"
+            name: "player1", 
+            score: 0
         },
         player2: {
             choice: "x",
-            name: "player2"
+            name: "player2", 
+            score: 0
         },
         turn: "x",
         winner: null
@@ -20,7 +22,7 @@ export const GameContextProvider = (props)=>{
 
     const updateBoard = (index) => {
         setGame((currentGame) => {
-            if (currentGame.winner || currentGame.board[index] === "x" || currentGame.board[index] === "o") {
+            if (currentGame.board[index] === "x" || currentGame.board[index] === "o") {
                 return currentGame;
             }
 
@@ -36,6 +38,11 @@ export const GameContextProvider = (props)=>{
             };
         });
     }
+    const resetBoard = () => {
+        setGame({
+            ...game, board: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+        })
+    }
 
     useEffect(() => {
         if (game.winner) {
@@ -45,7 +52,7 @@ export const GameContextProvider = (props)=>{
 
     return (
         <GameContext.Provider value={{
-            game, updateBoard
+            game, updateBoard, resetBoard
         }}>
             {props.children}
         </GameContext.Provider>
