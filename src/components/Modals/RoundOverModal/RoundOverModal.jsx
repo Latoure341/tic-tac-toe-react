@@ -32,7 +32,12 @@ const RoundOverModal = () => {
         }}
         color="rgb(186, 142, 35)">
           Continue</Button>
-        <Button>Restart</Button>
+        <Button onClick={()=> {
+          game.player1.score = 0;
+          game.player2.score = 0;
+          resetBoard();
+          handleModal();
+        }}>Restart</Button>
       </ModalFooter>
     </>
   );
