@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import {
   ModalHeader,
   ModalBody,
@@ -10,17 +10,19 @@ import { GameContext } from "../../../contexts/GameContext.jsx";
 import { ModalContext } from "../../../contexts/ModalContext.jsx"
 
 const RoundOverModal = () => {
-  const {resetBoard } = useContext(GameContext);
+  const {resetBoard, game } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext)
+  const isDraw = game.winner === "draw";
+
   return (
     <>
       <ModalHeader>
-        <Title>Player 1 Wins the Round</Title>
+        <Title>{isDraw ? "Round Is A Draw" : `${game.winner?.name} Wins The Round`}</Title>
       </ModalHeader>
       <ModalBody>
-        <Subtitle>We switching turns</Subtitle>
-        <Subtitle>Player1: 1</Subtitle>
-        <Subtitle>Player2: 0</Subtitle>
+        <Subtitle>{isDraw ? "No score update" : "We switching turns"}</Subtitle>
+        <Subtitle>{game.player1.name}: {game.player1.score}</Subtitle>
+        <Subtitle>{game.player2.name}: {game.player2.score}</Subtitle>
       </ModalBody>
       <ModalFooter>
         <Button 

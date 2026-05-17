@@ -5,13 +5,19 @@ export const Container = styled.div`
     flex-direction: ${(props) => props.columnBased ? "column" : "row"};
     justify-content: center;
     align-items: center;
-    gap: 3rem;
     
     height: 80vh;
     width: 100vw;
     padding: 1rem;
     background-color: ${(props) => props.theme.colors.primary};
     text-align: center;
+
+     ${(props) => props.theme.media.mobile} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+     }
 `
 
 export const Title = styled.h1`
@@ -24,6 +30,14 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
     color: ${(props)=> props.theme.colors.secondary};
     font-size: 1.5rem;
+    font-weight: 200;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+`
+
+export const Text = styled.p`
+    color: ${(props)=> props.theme.colors.secondary};
+    font-size: 1.2rem;
     font-weight: 200;
     font-family: 'Poppins', sans-serif;
     background-color: transparent;

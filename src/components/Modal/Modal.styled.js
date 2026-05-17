@@ -25,11 +25,17 @@ export const ModalContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center
+
+    ${(props) => props.theme.media.mobile} {
+        min-width: 100px;
+        padding: 20px 10px;
+    }
 `
 
 export const ModalHeader = styled.div`
     display: flex;
     justify-content: center;
+    
 `
 
 export const ModalBody = styled.div`

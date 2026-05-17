@@ -15,4 +15,6 @@ export const checkWinner = (board) => {
   });
 };
 
-export const checkDraw = (board) => {};
+export const checkDraw = (board) => {
+  return board.every((cell) => cell === "x" || cell === "o");
+};

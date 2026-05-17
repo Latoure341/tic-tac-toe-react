@@ -1,20 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CellStyle } from "./GameCell.styled";
 import { GameContext } from "../../contexts/GameContext";
-import { checkWinner } from "../../utils/Game.utils";
+import { checkDraw, checkWinner } from "../../utils/Game.utils";
 import { ModalContext } from "../../contexts/ModalContext";
 import RoundOverModal from "../Modals/RoundOverModal/RoundOverModal";
 
 export const GameCell = ({ cellItem, index }) => {
-  const { updateBoard, game } = useContext(GameContext);
+  const { updateBoard, game, roundComplete } = useContext(GameContext);
   const { handleModal } = useContext(ModalContext);
-  const [ openModal, setOpenModal ] = useState(false);
 
   const cellHandler = () => {
+    if (cellItem === "x" || cellItem === "o") {
+      return;
+    }
+
+    const updatedBoard = [...game.board];
+    updatedBoard[index] = game.turn;
+    const hasWinner = checkWinner(updatedBoard);
+    const isDraw = !hasWinner && checkDraw(updatedBoard);
+
     updateBoard(index);
-    if(checkWinner(game.board)){
-     handleModal(<RoundOverModal/>)
-      
+
+    if (hasWinner || isDraw) {
+      roundComplete(isDraw);
+      handleModal(<RoundOverModal />);
     }
   };
 
