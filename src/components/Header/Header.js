@@ -4,7 +4,7 @@ export const HeaderWrapper = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
 
     padding: 2rem;
     background: ${(props)=>props.theme.colors.primary};

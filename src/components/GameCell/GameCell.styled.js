@@ -11,11 +11,17 @@ export const CellStyle = styled.button`
     height: 6rem;
 
     cursor: pointer;
+
+    
 `
 
 export const ElementXO = styled.span`
     font-weight: 900;
     font-family: 'Poppins', sans-serif;
     
-
+    ${(props) => props.theme.media.mobile} {
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem
+    }
 `

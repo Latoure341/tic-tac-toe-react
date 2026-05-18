@@ -22,6 +22,7 @@ export const GameContextProvider = (props) => {
   const updateBoard = (index) => {
     setGame((currentGame) => {
       if (
+        currentGame.winner ||
         currentGame.board[index] === "x" ||
         currentGame.board[index] === "o"
       ) {
@@ -46,13 +47,21 @@ export const GameContextProvider = (props) => {
       };
     });
   };
-  const resetBoard = () => {
-    setGame({
-      ...game,
+  const resetBoard = (resetScore = false) => {
+    setGame((currentGame) => ({
+      ...currentGame,
       board: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      player1: {
+        ...currentGame.player1,
+        score: resetScore ? 0 : currentGame.player1.score,
+      },
+      player2: {
+        ...currentGame.player2,
+        score: resetScore ? 0 : currentGame.player2.score,
+      },
       turn: "x",
       winner: "",
-    });
+    }));
   };
   const switchTurn = () => {
     setGame((currentGame) => {

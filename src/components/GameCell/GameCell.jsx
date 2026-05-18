@@ -10,7 +10,7 @@ export const GameCell = ({ cellItem, index }) => {
   const { handleModal } = useContext(ModalContext);
 
   const cellHandler = () => {
-    if (cellItem === "x" || cellItem === "o") {
+    if (game.winner || cellItem === "x" || cellItem === "o") {
       return;
     }
 
