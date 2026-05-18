@@ -4,6 +4,7 @@ import Home from './pages/Home/Home'
 import Header from './components/Header/Header.jsx'
 import Game from './pages/Game/Game'
 import Details from './pages/Details/Details'
+import Timer from './components/Timer/Timer.jsx'
 
 const Router = () => {
     return (

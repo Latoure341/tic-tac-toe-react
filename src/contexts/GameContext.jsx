@@ -54,6 +54,18 @@ export const GameContextProvider = (props) => {
       winner: "",
     });
   };
+  const switchTurn = () => {
+    setGame((currentGame) => {
+      if (currentGame.winner) {
+        return currentGame;
+      }
+
+      return {
+        ...currentGame,
+        turn: currentGame.turn === "x" ? "o" : "x",
+      };
+    });
+  };
   const toggleChoice = (choice) => (choice === "x" ? "o" : "x");
   const roundComplete = (isDraw = false) => {
     setGame((prevGame) => {
@@ -89,6 +101,7 @@ export const GameContextProvider = (props) => {
       value={{
         game,
         updateBoard,
+        switchTurn,
         resetBoard,
         roundComplete,
       }}

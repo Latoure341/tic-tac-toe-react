@@ -4,12 +4,13 @@ import { GameBoardStyle } from "./Game.styled";
 import { GameCell } from "../../components/GameCell/GameCell.jsx";
 import { GameContext } from '../../contexts/GameContext.jsx';
 import Player from '../../components/Player/Player.jsx';
+import Timer from '../../components/Timer/Timer.jsx';
 
 const Game = () => {
   const { game } = useContext( GameContext );
 
   return (
-    
+    <>
     <Container>
       <Player player={game.player1} isPlayerActive={game.player1.choice === game.turn}/>
       <GameBoardStyle>
@@ -21,6 +22,8 @@ const Game = () => {
       </GameBoardStyle>
       <Player player={game.player2} isPlayerActive={game.player2.choice === game.turn}/>
     </Container>
+    <Timer key={`${game.turn}-${game.winner ? "finished" : "active"}`} />
+    </>
   )
 }
 

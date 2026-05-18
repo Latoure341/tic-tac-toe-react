@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { CellStyle } from "./GameCell.styled";
+import { CellStyle, ElementXO } from "./GameCell.styled";
 import { GameContext } from "../../contexts/GameContext";
 import { checkDraw, checkWinner } from "../../utils/Game.utils";
 import { ModalContext } from "../../contexts/ModalContext";
@@ -26,6 +26,11 @@ export const GameCell = ({ cellItem, index }) => {
       handleModal(<RoundOverModal />);
     }
   };
+  if(cellItem === "x") {
+    return <CellStyle onClick={() => cellHandler()}><ElementXO>X</ElementXO></CellStyle>
+  } else if(cellItem === "o") {
+    return <CellStyle onClick={() => cellHandler()}><ElementXO>O</ElementXO></CellStyle>
+  }
 
   return (
     <CellStyle
@@ -33,7 +38,7 @@ export const GameCell = ({ cellItem, index }) => {
         cellHandler();
       }}
     >
-      {cellItem}
+      {" "}
     </CellStyle>
   );
 };
